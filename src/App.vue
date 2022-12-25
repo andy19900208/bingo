@@ -14,10 +14,11 @@ export default {
 </script>
 
 <style>
-#app {
-  position: relative;
-  display: block;
-  padding: 1rem;
-  font-size: 1rem;
+
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
+
 </style>
