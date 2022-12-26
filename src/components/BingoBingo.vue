@@ -3,10 +3,15 @@
         <div class="row">
 
             <div id="cell_1">
-                <transition-group tag="ul" class="number-list" name="list">
-                    <li v-for="(item, index) in list" :key="index" class="ball "
-                        v-bind:class="{ 'item': pool.indexOf(item) < 0, 'roll': pool.indexOf(item) >= 0 }">{{ item }}</li>
-                </transition-group>
+
+                <div id="banner"></div>
+                <div id="board">
+                    <transition-group tag="ul" class="number-list" name="list">
+                        <li v-for="(item, index) in list" :key="index" class="ball "
+                            v-bind:class="{ 'item': pool.indexOf(item) < 0, 'roll': pool.indexOf(item) >= 0 }"
+                        >{{ item }}</li>
+                    </transition-group>
+                </div>
             </div>
 
             <div id="cell_2">
@@ -103,7 +108,7 @@ export default {
     // min-width: 1210px;
     // min-height: 950px;
     //background: rgba(32, 32, 32, 0.205);
-    //background: url("~/public/image/background/聖誕抽獎版面.jpg") no-repeat;
+    background: url("~/public/background.png") no-repeat;
     background-size: 100% 100%;//contain;
     position: relative; 
 
@@ -115,24 +120,34 @@ export default {
 #cell_1 {
         width: 75vw;
         //height: 100%;
-        background: #19015c2d;
-        padding-top: 3vw;
-        padding-left: 3vw;
+        //background: #19015c2d;
+        //padding-top: 3vw;
+        //padding-left: 3vw;
 }
 #cell_2 {
     width: 25vw;
     //height: 100%;
-    background: #454c4474;
+    //background: #454c4474;
     padding-top: 55vh;
 
 }
+#banner{
+    height: 25vh;
+    //background: #4c4c4474;
+}
+#board
+{
+    padding: 5vh 2vw 0 2vw;
+    //height: 80vh;
+}
+
 
 #button {
     width: 18vw;
     height: 18vw;
     cursor: pointer;
     margin: 0 auto;
-    background-color: #c33e3e71;  
+    //background-color: #c33e3e71;  
 }
 
 .roll {
@@ -153,19 +168,20 @@ export default {
 }
 
 .number-list {
-    overflow: hidden;
+    //overflow: hidden;
     padding: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     list-style-type: none;
+    margin: 0;
 
     .item {
         display: block;
         float: left;
-        width: 10vw;
-        height: 10vw;
+        width: 8vw;
+        height: 8vw;
         text-align: center;
-        line-height: 10vw;
-        font-size: 8vw;
+        line-height: 8vw;
+        font-size: 6vw;
         margin-right: 1rem;
         margin-left: 0;
         margin-bottom: 1rem;
