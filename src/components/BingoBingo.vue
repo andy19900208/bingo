@@ -1,5 +1,7 @@
 <template>
     <div id="bg">
+        <div id="logobackground" class="ball" v-show="disabled"></div>
+
         <div class="row">
 
             <div id="cell_1">
@@ -7,20 +9,22 @@
                 <div id="banner"></div>
                 <div id="board">
                     <transition-group tag="ul" class="number-list" name="list">
-                        <li v-for="(item, index) in list" :key="index" class="ball "
-                            v-bind:class="{ 'item': pool.indexOf(item) < 0, 'roll': pool.indexOf(item) >= 0 }"
+                        <li v-for="(item, index) in list" :key="index"
+                            v-bind:class="{ 'item': pool.indexOf(item) < 0, 'ball': pool.indexOf(item) < 0, 'roll': pool.indexOf(item) >= 0 }"
                         >{{ item }}</li>
                     </transition-group>
                 </div>
             </div>
 
             <div id="cell_2">
-                <div id="button" @click="!disabled && draw()">抽</div>
+                <div id="button" @click="!disabled && draw()"></div>
                 <!-- <button @click="list.length = 0">Remove all</button> -->
             </div>
 
         </div>
-    </div>
+        
+        <div id="logo"></div>
+    </div> 
 </template>
 
 <script>
@@ -108,11 +112,30 @@ export default {
     // min-width: 1210px;
     // min-height: 950px;
     //background: rgba(32, 32, 32, 0.205);
-    background: url("~/public/background.png") no-repeat;
+    background: url("~/public/background_nologo.jpg") no-repeat;
     background-size: 100% 100%;//contain;
     position: relative; 
 
 }
+#logo{
+    width: 20vw;
+    height: 20vw; 
+    background: url("~/public/logo.png") no-repeat;
+    background-size: 100% 100%;//contain;
+    position: fixed;
+    right: 2vw;
+    top: 40vh;
+}
+#logobackground{
+    width: 20vw;
+    height: 20vw; 
+    position: fixed;
+    right: 2vw;
+    top: 40vh;
+
+}
+
+
 .row {
     display: flex;
     height: 100vh;
@@ -125,10 +148,11 @@ export default {
         //padding-left: 3vw;
 }
 #cell_2 {
-    width: 25vw;
+    width: 24vw;
     //height: 100%;
     //background: #454c4474;
-    padding-top: 55vh;
+    padding-top: 83vh;
+    padding-right: 1vw;
 
 }
 #banner{
@@ -143,27 +167,28 @@ export default {
 
 
 #button {
-    width: 18vw;
-    height: 18vw;
+    width: 6vw;
+    height: 6vw;
     cursor: pointer;
     margin: 0 auto;
     //background-color: #c33e3e71;  
 }
 
 .roll {
-    width: 20vw;
-    height: 20vw;
+    width: 17vw;
+    height: 17vw;
     text-align: center;
-    line-height: 20vw;
-    font-size: 17vw;
+    line-height: 17vw;
+    font-size: 13vw;
     position: fixed;
-    right: 2vw;
-    top: 5vh;
+    right: 1vw;
+    top: 42vh;
+    color: rgb(255, 255, 255);
 }
 
 .ball {
-    background-color: rgb(255, 238, 0);
-    color: rgb(0, 0, 0);
+    background-color: #e82a2a;
+    color: rgb(255, 255, 255);
     border-radius: 99em;
 }
 
