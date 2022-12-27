@@ -17,13 +17,14 @@
             </div>
 
             <div id="cell_2">
-                <div id="button" @click="!disabled && draw()"></div>
+                <!-- <div id="button" @click="!disabled && draw()"></div> -->
                 <!-- <button @click="list.length = 0">Remove all</button> -->
             </div>
 
         </div>
         
         <div id="logo"></div>
+        <div id="button" @click="!disabled && draw()"></div>
     </div> 
 </template>
 
@@ -112,7 +113,7 @@ export default {
     // min-width: 1210px;
     // min-height: 950px;
     //background: rgba(32, 32, 32, 0.205);
-    background: url("~/public/background_nologo.jpg") no-repeat;
+    background: url("~/public/background_clear.jpg") no-repeat;
     background-size: 100% 100%;//contain;
     position: relative; 
 
@@ -171,7 +172,17 @@ export default {
     height: 6vw;
     cursor: pointer;
     margin: 0 auto;
-    //background-color: #c33e3e71;  
+    // background-color: #e82a2a;  
+    // color:#ffffff;
+    // text-align: center;
+    // line-height: 6vw;
+    // font-size: 5vw;
+    // font-weight:bold;
+    background: url("~/public/button.png") no-repeat;
+    background-size: 100% 100%;//contain;
+    position: fixed;
+    right: 8.5vw;
+    top: 83vh;
 }
 
 .roll {
