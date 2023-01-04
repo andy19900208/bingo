@@ -76,7 +76,6 @@ export default {
         }
     },
 
-
     methods: {
 
         draw() {
@@ -93,7 +92,10 @@ export default {
 
         add(index) {
             this.pool.splice(index, 1);
-            this.disabled = false;
+            
+            setTimeout(() => {
+                this.disabled = false;
+            }, 750);
         },
 
         onKeydown( event ) {
@@ -101,8 +103,8 @@ export default {
                 this.draw();
             }
         },
+        
     }
-
 
 }
 
