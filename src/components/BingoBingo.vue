@@ -120,7 +120,7 @@ export default {
     // min-width: 1210px;
     // min-height: 950px;
     //background: rgba(32, 32, 32, 0.205);
-    background: url("~/public/background_clear.jpg") no-repeat;
+    background: url("~/public/background_20230104.jpg") no-repeat;
     background-size: 100% 100%;//contain;
     position: relative; 
 
