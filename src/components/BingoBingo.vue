@@ -41,6 +41,7 @@ export default {
             this.pool.push(i);
         }
 
+        document.addEventListener( "keydown", this.onKeydown );
     },
 
     watch:
@@ -93,7 +94,13 @@ export default {
         add(index) {
             this.pool.splice(index, 1);
             this.disabled = false;
-        }
+        },
+
+        onKeydown( event ) {
+            if(event.key === " " && !this.disabled ){       
+                this.draw();
+            }
+        },
     }
 
 
