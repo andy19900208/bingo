@@ -15,7 +15,7 @@
             </div>
 
             <div id="cell_2">
-                <div id="button" @click="!disabled && draw()">抽</div>
+                <div id="button" @click="!disabled && draw()"></div>
                 <!-- <button @click="list.length = 0">Remove all</button> -->
             </div>
 
@@ -109,6 +109,14 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes Bggif {
+    0%    { background-image: url('~/public/background_01.png');}
+    25%   { background-image: url('~/public/background_02.png');}
+    50%   { background-image: url('~/public/background_01.png');}
+    75%   { background-image: url('~/public/background_02.png');}
+    100%  { background-image: url('~/public/background_01.png');}
+}
+
 #bg {
     width: 100vw;
     height: 100vh;
@@ -118,6 +126,11 @@ export default {
     background: url("~/public/background.png") no-repeat;
     background-size: 100% 100%;//contain;
     position: relative; 
+
+    animation-name: Bggif;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
 
 }
 .row {
@@ -162,15 +175,17 @@ export default {
     height: 20vw;
     text-align: center;
     line-height: 20vw;
-    font-size: 17vw;
+    font-size: 11vw;
+    font-weight: bold;
     position: fixed;
     right: 2vw;
     top: 5vh;
 }
 
 .ball {
-    background-color: rgb(255, 238, 0);
-    color: rgb(0, 0, 0);
+    background: url('~/public/ball_02.png') no-repeat center center scroll transparent;
+    background-size: contain;
+    color: #341f01;
     border-radius: 99em;
 }
 
@@ -188,9 +203,10 @@ export default {
         height: 8vw;
         text-align: center;
         line-height: 8vw;
-        font-size: 6vw;
-        margin-right: 1rem;
-        margin-left: 0;
+        font-size: 5vw;
+        font-weight: bold;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
         margin-bottom: 1rem;
     }
 }
