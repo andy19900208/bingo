@@ -168,8 +168,15 @@ export default {
     width: 18vw;
     height: 18vw;
     cursor: pointer;
-    margin: 0 auto;
+    //margin: 0 auto;
     //background-color: #c33e3e71;  
+    background: url('~/public/button@2x_default.png') no-repeat center center transparent;
+    background-size: 60% 60%;
+    margin: -28px auto 0;
+    
+    &:hover {
+        background-image: url('~/public/button@2x_hover.png');
+    }
 }
 
 .roll {
@@ -194,9 +201,12 @@ export default {
 .number-list {
     //overflow: hidden;
     padding: 0;
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
     list-style-type: none;
     margin: 0;
+    height: 63.5vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .item {
         display: block;
@@ -207,9 +217,16 @@ export default {
         line-height: 8vw;
         font-size: 5vw;
         font-weight: bold;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
+        margin-right: 0.3rem;
+        margin-left: 0.3rem;
         margin-bottom: 1rem;
+
+        &:nth-child(8n+1) {
+            margin-left: 0.7rem;
+        }
+        &:nth-child(8n) {
+            margin-right: 0;
+        }
     }
 }
 
