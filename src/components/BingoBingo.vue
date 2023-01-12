@@ -6,7 +6,10 @@
 
                 <div id="banner"></div>
                 <div id="board">
-                    <transition-group tag="ul" class="number-list" name="list">
+                    <transition-group tag="ul" name="list"
+                                      class="number-list"
+                                      :class="{ overflow: list.length > 32 }"
+                    >
                         <li v-for="(item, index) in list" :key="index" class="ball "
                             v-bind:class="{ 'item': pool.indexOf(item) < 0, 'roll': pool.indexOf(item) >= 0 }"
                         >{{ item }}</li>
@@ -15,8 +18,9 @@
             </div>
 
             <div id="cell_2">
-                <div id="button" @click="!disabled && draw()"></div>
-                <!-- <button @click="list.length = 0">Remove all</button> -->
+                <div id="button" class="button" :class="{'flash': disabled}"
+                     @click="!disabled && draw()"
+                ></div>
             </div>
 
         </div>
@@ -163,8 +167,14 @@ export default {
     //height: 80vh;
 }
 
-
-#button {
+@keyframes ButtonFlash {
+    0%    { background-image: url('~/public/button@2x_default.png');}
+    25%   { background-image: url('~/public/button@2x_hover.png');}
+    50%   { background-image: url('~/public/button@2x_default.png');}
+    75%   { background-image: url('~/public/button@2x_hover.png');}
+    100%  { background-image: url('~/public/button@2x_default.png');}
+}
+.button {
     width: 18vw;
     height: 18vw;
     cursor: pointer;
@@ -174,6 +184,13 @@ export default {
     background-size: 60% 60%;
     margin: -28px auto 0;
     
+    &.flash{
+        background-image: url('~/public/button@2x_hover.png');
+        animation-name: ButtonFlash;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-iteration-count: 3;
+    }
     &:hover {
         background-image: url('~/public/button@2x_hover.png');
     }
@@ -205,8 +222,8 @@ export default {
     list-style-type: none;
     margin: 0;
     height: 63.5vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    // overflow-y: auto;
+    // overflow-x: hidden;
 
     .item {
         display: block;
@@ -228,6 +245,10 @@ export default {
             margin-right: 0;
         }
     }
+}
+.overflow {
+    overflow-y: auto;
+    overflow-x: hidden;   
 }
 
 .list-enter-active,
